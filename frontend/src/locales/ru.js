@@ -31,6 +31,7 @@ export default {
     errors: {
       network: 'Ошибка соединения',
       unknown: 'Неизвестная ошибка',
+      loginErr: 'Неверные имя пользователя или пароль',
     },
     private: {
       header: 'Скрытая страница!',
