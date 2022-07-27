@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
@@ -35,13 +35,11 @@ function Login() {
     validationSchema: validation,
     onSubmit: async (values) => {
       setAuthFailed(false);
-      console.log(values);
       try {
         const res = await axios.post(routes.loginPath(), values);
-        console.log(res);
+        console.log(res, res.data);
         auth.logIn(res.data);
         const { from } = location.state || { from: { pathname: routes.chatPagePath() } };
-        console.log(from);
         navigate(from);
       } catch (error) {
         console.log(error);
@@ -50,7 +48,6 @@ function Login() {
           toast.error(t('errors.unknown'));
           return;
         }
-
         if (error.response?.status === 401) {
           setAuthFailed(true);
           inputRef.current.select();
@@ -114,7 +111,7 @@ function Login() {
               <div className="text-center">
                 <span>{t('login.newToChat')}</span>
                 {' '}
-                {/* <Link to={routes.signupPagePath()}>{t('login.signup')}</Link> */}
+                <Link to={'/signup'}>{t('login.signup')}</Link>
               </div>
             </div>
           </div>
