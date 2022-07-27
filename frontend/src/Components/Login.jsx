@@ -2,19 +2,62 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import * as yup from 'yup';
+import { toast } from 'react-toastify';
 import routes from '../routes.js';
+import useAuth from '../hooks/useAuth.js';
 import avatarImages from '../assets/avatar.jpg';
 
 function Login() {
+  const auth = useAuth();
   const { t } = useTranslation();
   const [authFailed, setAuthFailed] = useState(false);
+  const inputRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const validation = yup.object({
+    username: yup.string().trim().required(t('loginErr')),
+    password: yup.string().required(t('loginErr')),
+  });
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       username: '',
       password: '',
     },
-    onSubmit: (value) => {
+    validationSchema: validation,
+    onSubmit: async (values) => {
       setAuthFailed(false);
+      console.log(values);
+      try {
+        const res = await axios.post(routes.loginPath(), values);
+        console.log(res);
+        auth.logIn(res.data);
+        const { from } = location.state || { from: { pathname: routes.chatPagePath() } };
+        console.log(from);
+        navigate(from);
+      } catch (error) {
+        console.log(error);
+
+        if (!error.isAxiosError) {
+          toast.error(t('errors.unknown'));
+          return;
+        }
+
+        if (error.response?.status === 401) {
+          setAuthFailed(true);
+          inputRef.current.select();
+        } else {
+          toast.error(t('errors.network'));
+        }
+      }
     },
   });
 
@@ -71,7 +114,7 @@ function Login() {
               <div className="text-center">
                 <span>{t('login.newToChat')}</span>
                 {' '}
-                <Link to={routes.signupPagePath()}>{t('login.signup')}</Link>
+                {/* <Link to={routes.signupPagePath()}>{t('login.signup')}</Link> */}
               </div>
             </div>
           </div>
