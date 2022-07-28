@@ -2,43 +2,51 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
-import * as yup from 'yup';
-import { Link } from 'react-router-dom';
-import avatarImages from '../assets/avatar_1.jpg';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+import validationForm from '../helpers/validation.js';
+import avatarImages from '../assets/signup.jpg';
+import routes from '../routes.js';
+import useAuth from '../hooks/useAuth.js';
 
 function SignUp() {
-  // eslint-disable-next-line no-unused-vars
   const [registrationFailed, setRegistrationFailed] = useState(false);
   const { t } = useTranslation();
+  const { toLogIn } = useAuth();
   const inputRef = useRef();
+  const navigate = useNavigate();
+
+  const { signupForm } = validationForm();
 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
-  const validation = yup.object().shape({
-    username: yup
-      .string()
-      .trim()
-      .required('signup.required')
-      .min(3, 'signup.usernameConstraints')
-      .max(20, 'signup.usernameConstraints'),
-    password: yup
-      .string()
-      .trim()
-      .required('signup.required')
-      .min(6, 'signup.passMin'),
-    confirmPassword: yup
-      .string()
-      .test('confirmPassword', 'signup.mustMatch', (value, context) => value === context.parent.password),
-  });
-
   const formik = useFormik({
     initialValues: {
       username: '',
       password: '',
+      confirmPassword: '',
     },
-    validationSchema: validation,
+    validationSchema: signupForm,
+    onSubmit: async (values) => {
+      try {
+        setRegistrationFailed(false);
+        const res = await axios.post(routes.signupPagePath(), values);
+        console.log(res.data);
+        toLogIn(res.data);
+        navigate('/');
+      } catch (error) {
+        if (error.response.status === 409) {
+          setRegistrationFailed(true);
+          inputRef.current.select();
+        }
+        if (!error.isAxiosError) {
+          throw error;
+        }
+      }
+    },
   });
 
   return (
