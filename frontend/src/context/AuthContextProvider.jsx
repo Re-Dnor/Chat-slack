@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AuthContext from './AuthContext.js';
 
 function AuthContextProvider({ children }) {
-  // const getUser = () => localStorage.getItem('username');
+  const getUser = () => localStorage.getItem('username');
   const getToken = () => localStorage.getItem('token');
 
   const isAuthorized = () => {
@@ -10,16 +10,28 @@ function AuthContextProvider({ children }) {
     return !!token;
   };
 
-  // const logIn = () => {
-
-  // }
-
-  // eslint-disable-next-line no-unused-vars
   const [authStatus, setAuthStatus] = useState(isAuthorized());
+
+  const toLogIn = ({ username, token }) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('username', username);
+    setAuthStatus(true);
+  };
+
+  const toLogOut = ({ username, token }) => {
+    localStorage.removeItem('token', token);
+    localStorage.removeItem('username', username);
+    setAuthStatus(false);
+  };
+
   return (
     <AuthContext.Provider value ={
     {
       authStatus,
+      toLogIn,
+      toLogOut,
+      getUser,
+      getToken,
     }
     }>{children}
     </AuthContext.Provider>
