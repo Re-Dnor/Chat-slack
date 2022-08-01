@@ -39,5 +39,14 @@ export default {
       header: 'Скрытая страница!',
       message: 'Авторизован пользователь: {{username}}',
     },
+    channels: {
+      name: 'Каналы',
+      remove: 'Удалить',
+      rename: 'Переименовать',
+    },
+    messages: {
+      placeholderName: 'Ваше сообщение...',
+      send: 'Отправить',
+    },
   },
 };
