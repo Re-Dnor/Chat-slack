@@ -8,7 +8,7 @@ import axios from 'axios';
 import validationForm from '../helpers/validation.js';
 import avatarImages from '../assets/signup.jpg';
 import routes from '../routes.js';
-import useAuth from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useAuth.js';
 
 function SignUp() {
   const [registrationFailed, setRegistrationFailed] = useState(false);
@@ -34,7 +34,6 @@ function SignUp() {
       try {
         setRegistrationFailed(false);
         const res = await axios.post(routes.signupPagePath(), values);
-        console.log(res.data);
         toLogIn(res.data);
         navigate('/');
       } catch (error) {
