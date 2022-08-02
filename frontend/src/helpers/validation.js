@@ -22,9 +22,19 @@ function validationForm() {
       .required(t('signup.required')),
   });
 
+  const addChannelForm = (channels) => yup.object().shape({
+    name: yup.string()
+      .trim()
+      .min(3, 'errors.channelNameLength')
+      .max(20, 'errors.channelNameLength')
+      .notOneOf(channels, 'errors.uniqueChannelName')
+      .required(),
+  });
+
   return {
     loginForm,
     signupForm,
+    addChannelForm: (channels) => addChannelForm(channels),
   };
 }
 
