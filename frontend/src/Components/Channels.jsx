@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  Button,
-  // ButtonGroup,
-  Col,
-  // Dropdown,
-  Nav,
-} from 'react-bootstrap';
+import { Button, Col, Nav } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
 
 import Channel from './Channel.jsx';
 import RemovableChannel from './RemovableChannel.jsx';
+import AddChannel from './Modal/AddChannel.jsx';
 
 function Channels() {
+  const [showModal, setShowModal] = useState(false);
   const { channels } = useSelector((state) => state.chats);
   const { t } = useTranslation();
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
 
   return (
     <Col className="col-4 col-md-2 border-end pt-5 px-0">
@@ -26,6 +26,7 @@ function Channels() {
         size="sm"
         variant="outline-primary"
         className="border"
+        onClick={handleShowModal}
       >
         +
       </Button>
@@ -37,6 +38,7 @@ function Channels() {
           : <RemovableChannel key ={_.uniqueId('RemovableChannel')} channel={channel}/>))}
       </Nav>
     </div>
+    {showModal ? <AddChannel setShowModal={setShowModal} showModal={showModal}/> : null}
   </Col>
   );
 }
