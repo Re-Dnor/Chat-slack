@@ -37,8 +37,6 @@ function Login() {
         toLogIn(res.data);
         navigate('/');
       } catch (error) {
-        console.error(error);
-
         if (!error.isAxiosError) {
           toast.error(t('errors.unknown'));
           return;
@@ -54,7 +52,7 @@ function Login() {
   });
 
   return (
-    <div className="container-fluid h-100 mt-5">
+    <div className="container-fluid h-100">
       <div className="row justify-content-center align-content-center h-100">
         <div className="col-12 col-md-8 col-xxl-6">
           <div className="card shadow-sm">
