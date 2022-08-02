@@ -47,6 +47,19 @@ export default {
     messages: {
       placeholderName: 'Ваше сообщение...',
       send: 'Отправить',
+      messages_zero: '{{count}} сообщений',
+      messages_one: '{{count}} сообщение',
+      messages_few: '{{count}} сообщения',
+      messages_many: '{{count}} сообщений',
+    },
+    modals: {
+      addChannel: 'Добавить канал',
+      removeChannel: 'Удалить канал',
+      renameChannel: 'Переименовать канал',
+      send: 'Отправить',
+      cancel: 'Отменить',
+      remove: 'Удалить',
+      sure: 'Уверены?',
     },
   },
 };

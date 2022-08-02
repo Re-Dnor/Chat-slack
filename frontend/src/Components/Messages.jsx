@@ -10,8 +10,9 @@ import MessageList from './MessageList.jsx';
 import { useSocket } from '../hooks/useAuth.js';
 
 function Messages() {
-  // const dispatch = useDispatch();
-  const { currentChannel } = useSelector((state) => state.chats);
+  const { currentChannel, channels, messages } = useSelector((state) => state.chats);
+  const nameCurrentChannel = channels.filter((c) => c.id === currentChannel)[0].name;
+  const countCurrentChannel = messages.filter((m) => m.channelId === currentChannel).length;
   const socket = useSocket();
   const username = localStorage.getItem('username');
   const { t } = useTranslation();
@@ -33,15 +34,20 @@ function Messages() {
       };
 
       socket.addNewMessage(newMessage, (response) => {
-        console.log(response, newMessage);
+        console.log(response);
       });
-
       formik.resetForm();
     },
   });
 
   return (
     <Col className="d-flex flex-column h-100 p-0">
+      <div className={'bg-white mx-0 mb-4 p-3 shadow-sm small'}>
+        <p className="m-0">
+          <b># {nameCurrentChannel}</b>
+        </p>
+        <span className="text-mutted">{t('messages.messages', { count: countCurrentChannel })}</span>
+      </div>
       <MessageList />
       <div className="mt-auto px-5 py-3">
       <Form onSubmit={formik.handleSubmit} className="form-label">
