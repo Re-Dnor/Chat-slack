@@ -25,9 +25,9 @@ function validationForm() {
   const addChannelForm = (channels) => yup.object().shape({
     name: yup.string()
       .trim()
-      .min(3, 'errors.channelNameLength')
-      .max(20, 'errors.channelNameLength')
-      .notOneOf(channels, 'errors.uniqueChannelName')
+      .min(3, 'errors.channelMinLength')
+      .max(20, 'errors.channelMaxLength')
+      .notOneOf(channels, 'errors.channelUniqName')
       .required(),
   });
 
