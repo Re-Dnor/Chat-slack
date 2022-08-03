@@ -34,6 +34,9 @@ export default {
       network: 'Ошибка соединения',
       unknown: 'Неизвестная ошибка',
       loginErr: 'Неверные имя пользователя или пароль',
+      channelMinLength: 'Минимальная длина 3',
+      channelMaxLength: 'Максимальная длина 20',
+      channelUniqName: 'Должно быть уникальным',
     },
     private: {
       header: 'Скрытая страница!',
@@ -60,6 +63,11 @@ export default {
       cancel: 'Отменить',
       remove: 'Удалить',
       sure: 'Уверены?',
+    },
+    toast: {
+      add: 'Канал создан',
+      remove: 'Канал удален',
+      rename: 'Канал переименован',
     },
   },
 };
