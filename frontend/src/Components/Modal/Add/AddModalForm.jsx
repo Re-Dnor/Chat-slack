@@ -29,7 +29,7 @@ function AddModalForm({ setShowModal }) {
       socket.newChannel(values, (response) => {
         if (response.status === 'ok') {
           setShowModal(false);
-          toast.success(t('toast.add'));
+          toast(t('toast.add'));
         }
       });
     },

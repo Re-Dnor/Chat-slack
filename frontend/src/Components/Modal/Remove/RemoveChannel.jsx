@@ -16,7 +16,7 @@ function RemoveChannel({ removeModal, setRemoveModal }) {
     const removeData = { id: targetModalID };
     socket.removeChannel(removeData, () => {
       setRemoveModal(false);
-      toast.success(t('toast.remove'));
+      toast(t('toast.remove'));
     });
   };
 

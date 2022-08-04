@@ -37,7 +37,7 @@ function RenameModalForm({ setRenameModal }) {
       socket.renameChannel(data, (response) => {
         if (response.status === 'ok') {
           setRenameModal(false);
-          toast.success(t('toast.rename'));
+          toast(t('toast.rename'));
         }
       });
     },
