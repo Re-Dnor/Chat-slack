@@ -10,7 +10,7 @@ import avatarImages from '../../assets/signup.jpg';
 import routes from '../../routes.js';
 import { useAuth } from '../../hooks/useAuth.js';
 
-function SignUp() {
+const SignUp = () => {
   const [registrationFailed, setRegistrationFailed] = useState(false);
   const { t } = useTranslation();
   const { toLogIn } = useAuth();
@@ -144,6 +144,6 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
