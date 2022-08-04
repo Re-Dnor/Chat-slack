@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+#root{
+  --toastify-color-progress-light: #0d6efd;
+}
+
 /* Loader */
 .lds-ellipsis {
   margin: auto;
