@@ -41,7 +41,9 @@ const chatsSlice = createSlice({
       if (state.currentChannel === action.payload.id) {
         state.currentChannel = 1;
       }
+      const messageList = state.messages.filter((m) => m.channelId !== action.payload.id);
       state.channels = channellList;
+      state.messages = messageList;
     },
     renameChannel: (state, action) => {
       const channellList = state.channels.map((channel) => {
