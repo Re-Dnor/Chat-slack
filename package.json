@@ -1,8 +1,8 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "main": "frontend/src/index.jsx",
   "description": "[![Actions Status](https://github.com/Re-Dnor/frontend-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/Re-Dnor/frontend-project-lvl4/actions)",
-  "main": "index.js",
   "scripts": {
     "build": "npm run build --prefix frontend",
     "start": "start-server -s ./frontend/build",
