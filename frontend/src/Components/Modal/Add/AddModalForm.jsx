@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, FloatingLabel } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -42,19 +42,20 @@ function AddModalForm({ setShowModal }) {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Form.Group>
-        <Form.Control
-          label={t('modals.nameChannel')}
-          name="name"
-          data-testid="add-channel"
-          className="mb-2"
-          onChange={formik.handleChange}
-          ref={textInput}
-          disabled={formik.isSubmitting}
-          isInvalid={formik.errors.name}
-        />
-        <Form.Control.Feedback type="invalid">
-          {t(formik.errors.name)}
-        </Form.Control.Feedback>
+        <FloatingLabel label={t('modals.nameChannel')}>
+          <Form.Control
+            name="name"
+            data-testid="add-channel"
+            className="mb-2"
+            onChange={formik.handleChange}
+            ref={textInput}
+            disabled={formik.isSubmitting}
+            isInvalid={formik.errors.name}
+          />
+          <Form.Control.Feedback type="invalid">
+            {t(formik.errors.name)}
+          </Form.Control.Feedback>
+        </FloatingLabel>
         <div className="d-flex justify-content-end">
           <Button
             onClick={handleClose}
