@@ -66,6 +66,7 @@ function Messages() {
           <FormControl
             ref={textInput}
             data-testid="new-message"
+            aria-label={t('ariaLabel')}
             placeholder={t('messages.placeholderName')}
             name="message"
             type="text"

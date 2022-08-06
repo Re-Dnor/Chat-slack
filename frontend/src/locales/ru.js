@@ -48,8 +48,9 @@ export default {
       rename: 'Переименовать',
     },
     messages: {
-      placeholderName: 'Ваше сообщение...',
+      placeholderName: 'Введите сообщение...',
       send: 'Отправить',
+      ariaLabel: 'Новое сообщение',
       messages_zero: '{{count}} сообщений',
       messages_one: '{{count}} сообщение',
       messages_few: '{{count}} сообщения',
