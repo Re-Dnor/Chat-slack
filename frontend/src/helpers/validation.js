@@ -28,7 +28,7 @@ function validationForm() {
       .min(3, 'errors.channelMinLength')
       .max(20, 'errors.channelMaxLength')
       .notOneOf(channels, 'errors.channelUniqName')
-      .required(),
+      .required(t('errors.required')),
   });
 
   return {

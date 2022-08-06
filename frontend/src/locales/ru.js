@@ -37,6 +37,7 @@ export default {
       channelMinLength: 'Минимальная длина 3',
       channelMaxLength: 'Максимальная длина 20',
       channelUniqName: 'Должно быть уникальным',
+      required: 'Обязательное поле',
     },
     private: {
       header: 'Скрытая страница!',
