@@ -60,6 +60,7 @@ export default {
       addChannel: 'Добавить канал',
       removeChannel: 'Удалить канал',
       renameChannel: 'Переименовать канал',
+      nameChannel: 'Имя канала',
       send: 'Отправить',
       cancel: 'Отменить',
       remove: 'Удалить',
