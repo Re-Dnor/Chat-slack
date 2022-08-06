@@ -1,12 +1,13 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "type": "module",
   "main": "frontend/src/index.jsx",
   "description": "[![Actions Status](https://github.com/Re-Dnor/frontend-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/Re-Dnor/frontend-project-lvl4/actions)",
   "scripts": {
     "build": "npm run build --prefix frontend",
     "start": "start-server -s ./frontend/build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "cd frontend && npm ci"
   },
   "repository": {
     "type": "git",
