@@ -54,12 +54,9 @@ function Messages() {
     <Col className="d-flex flex-column h-100 p-0">
       <div className={'bg-white mx-0 mb-4 p-3 shadow-sm small'}>
         <p className="m-0">
-          <b>
-            #
-            {' '}
-            {nameCurrentChannel || null}</b>
+          <b>{`# ${nameCurrentChannel || null}`}</b>
         </p>
-        <span className="text-mutted">{t('messages.messages', { count: countCurrentChannel })}</span>
+        <span className="text-muted">{t('messages.messages', { count: countCurrentChannel })}</span>
       </div>
       <MessageList />
       <div className="mt-auto px-5 py-3">
