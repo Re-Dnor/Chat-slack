@@ -2,9 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Chat from './Pages/Chat.jsx';
 import Login from './Pages/Login.jsx';
-import NotFoundPage from './NotFoundPage.jsx';
+import NotFoundPage from './Pages/NotFoundPage.jsx';
 import Navbar from './Navbar.jsx';
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useData.js';
 import SignUp from './Pages/SignUp.jsx';
 
 function App() {

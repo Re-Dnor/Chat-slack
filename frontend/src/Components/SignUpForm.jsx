@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import validationForm from '../helpers/validation.js';
 import routes from '../routes.js';
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useData.js';
 
 function SignUpForm() {
   const [registrationFailed, setRegistrationFailed] = useState(false);

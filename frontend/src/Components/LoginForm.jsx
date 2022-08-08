@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import validationForm from '../helpers/validation.js';
 import routes from '../routes.js';
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useData.js';
 
 function LoginForm() {
   const { t } = useTranslation();

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useData.js';
 
 const Navbar = () => {
   const { authStatus, toLogOut } = useAuth();
