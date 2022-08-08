@@ -20,24 +20,24 @@ function AddModalForm({ setShowModal }) {
     setShowModal(false);
   };
 
+  useEffect(() => {
+    textInput.current.focus();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       name: '',
     },
     validationSchema: addChannelForm(channelsName),
     onSubmit: (values) => {
-      setShowModal(false);
       socket.newChannel(values, (response) => {
         if (response.status === 'ok') {
           toast(t('toast.add'));
+          setShowModal(false);
         }
       });
     },
   });
-
-  useEffect(() => {
-    textInput.current.focus();
-  }, []);
 
   return (
     <Form onSubmit={formik.handleSubmit}>
