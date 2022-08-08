@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import validationForm from '../../../helpers/validation.js';
-import { useSocket } from '../../../hooks/useAuth.js';
+import { useSocket } from '../../../hooks/useData.js';
 
 function RenameModalForm({ setRenameModal }) {
   // eslint-disable-next-line no-unused-vars

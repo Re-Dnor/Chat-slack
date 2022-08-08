@@ -5,8 +5,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setActiveChannel } from '../store/features/chats-slice.js';
-import { setModal } from '../store/features/modal-slice.js';
+import { setActiveChannel } from '../../store/features/chats-slice.js';
+import { setModal } from '../../store/features/modal-slice.js';
 
 function Channel({ channel, setRemoveModal, setRenameModal }) {
   const dispatch = useDispatch();
