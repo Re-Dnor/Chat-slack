@@ -16,7 +16,7 @@ function Channels() {
   const [renameModal, setRenameModal] = useState(false);
   const { channels } = useSelector((state) => state.chats);
   const { t } = useTranslation();
-
+  console.log(channels);
   const handleShowModal = () => {
     setShowModal(true);
   };
