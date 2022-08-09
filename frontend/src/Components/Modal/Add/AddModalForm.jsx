@@ -42,9 +42,10 @@ function AddModalForm({ setShowModal }) {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Form.Group>
-        <FloatingLabel label={t('modals.nameChannel')} controlId="channelName">
+        <FloatingLabel label={t('modals.nameChannel')} htmlFor='AddedForm'>
           <Form.Control
             name="channelName"
+            id='AddedForm'
             data-testid="add-channel"
             className="mb-2"
             onChange={formik.handleChange}
