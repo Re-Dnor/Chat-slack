@@ -9,7 +9,7 @@ import SignUp from './Pages/SignUp.jsx';
 
 function App() {
   const { authStatus } = useAuth();
-
+  console.log(authStatus);
   return (
     <div className="d-flex flex-column h-100">
       <Navbar/>
