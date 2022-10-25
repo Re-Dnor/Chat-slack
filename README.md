@@ -32,3 +32,5 @@
 [React-i18next](https://react.i18next.com/) interface internationalization and text management<br>
 [Eslint](https://eslint.org/) linter<br>
 [Webpack](https://webpack.js.org/) module bundler<br>
+
+![Screenshot](https://i.imgur.com/RJGf0Gm.png)
