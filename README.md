@@ -1,6 +1,5 @@
 ## Chat-slack
 
-## [Website](https://floating-meadow-32228.herokuapp.com/)<br>
 [![linter-check](https://github.com/Re-Dnor/Chat-slack/actions/workflows/linter-check.yml/badge.svg)](https://github.com/Re-Dnor/Chat-slack/actions/workflows/linter-check.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d244793f85f85a719e45/maintainability)](https://codeclimate.com/github/Re-Dnor/Chat-slack/maintainability)
 
@@ -16,10 +15,10 @@
 ### You can run it locally
 1. Clone this repository: <br>
 <code> git clone https://github.com/Re-Dnor/Chat-slack.git</code><br>
-2. Change to the project directory:<br>
-<code>cd frontend-project-lvl4</code><br>
-3. Install dependencies:<br>
+2. Install dependencies:<br>
 <code>make install</code>
+3. Start the project:<br>
+<code>make start</code>
 
 ### Used technologies:
 [React](https://reactjs.org/) (Hooks)<br>
